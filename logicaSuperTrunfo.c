@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main() {
+int main() {  
     // Declaração das variáveis 
     char estado1, estado2; //variável para receber estado representando com uma letra de (A-H)
     char cod1[4], cod2[4]; // variável com array para receber código (EX: A01) até 4 caracteres
@@ -111,27 +111,68 @@ int main() {
         printf("╔═══════════════════════════════════════╗\n");
         printf("║   RANKING - COMPARACAO DAS CARTAS     ║\n");
         printf("╚═══════════════════════════════════════╝\n \n"); 
-
-        if (pop1 > pop2){
-           printf("■ POPULAÇÃO:    CARTA 1: %s ■ CARTA 2: %s", pop1, pop2 "CARTA 1 VENCEU!");
-        }  else{
-           printf("■ POPULAÇÃO:    CARTA 1: %s ■ CARTA 2: %s", pop1, pop2 "CARTA 2 VENCEU!");
+         
+        // Inicia instrução if-else para comparar os atributos das cartas
+        printf("╔══════════════════════════╗\n");
+        printf("║   ATRIBUTO - POPULACAO   ║\n");
+        printf("╚══════════════════════════╝\n"); 
+        
+        if (pop1 > pop2){ 
+           printf("■ CARTA 1 - CIDADE: %s - POPULACAO: %lu \n■ CARTA 2 - CIDADE: %s -  POPULACAO: %lu \n■ RESULTADO: A CARTA 1 VENCEU \n", cidade1, pop1, cidade2, pop2);
+        } else {     
+           printf("■ CARTA 1 - CIDADE: %s - POPULACAO: %lu \n■ CARTA 2 - CIDADE: %s -  POPULACAO: %lu \n■ RESULTADO: A CARTA 2 VENCEU \n", cidade1, pop1, cidade2, pop2);
         }        
         
+        printf("\n╔═════════════════════╗\n");
+        printf("║   ATRIBUTO - AREA    ║\n");
+        printf("╚══════════════════════╝\n"); 
+        if (area1 > area2){
+           printf("■ CARTA 1 - CIDADE: %s - AREA: %.2f \n■ CARTA 2 - CIDADE: %s -  AREA: %.2f \n■ RESULTADO: A CARTA 1 VENCEU \n", cidade1, area1, cidade2, area2);
+        } else {     
+           printf("■ CARTA 1 - CIDADE: %s - AREA: %.2f \n■ CARTA 2 - CIDADE: %s -  AREA: %.2f \n■ RESULTADO: A CARTA 2 VENCEU \n", cidade1, area1, cidade2, area2);
+        }        
         
-
-
-
+        printf("\n╔═════════════════════╗\n");
+        printf("║   ATRIBUTO - PIB     ║\n");
+        printf("╚══════════════════════╝\n"); 
+        if (pib1 > pib2){
+           printf("■ CARTA 1 - CIDADE: %s - PIB: %.2f \n■ CARTA 2 - CIDADE: %s  - PIB: %.2f \n■ RESULTADO: A CARTA 1 VENCEU \n", cidade1, pib1, cidade2, pib2);
+        } else {     
+           printf("■ CARTA 1 - CIDADE: %s - PIB: %.2f \n■ CARTA 2 - CIDADE: %s  - PIB: %.2f \n■ RESULTADO: A CARTA 2 VENCEU \n", cidade1, pib1, cidade2, pib2);
+        }        
         
-        printf("■ POPULAÇÃO:              %s\n", (pop1 > pop2) ? "CARTA 1 VENCEU!" : "CARTA 2 VENCEU!");
-        printf("■ ÁREA:                   %s\n", (area1 > area2) ? "CARTA 1 VENCEU!" : "CARTA 2 VENCEU!");
-        printf("■ PIB:                    %s\n", (pib1 > pib2) ? "CARTA 1 VENCEU!" : "CARTA 2 VENCEU!");
-        printf("■ PONTOS TURISTICOS:      %s\n", (ptur1 > ptur2) ? "CARTA 1 VENCEU!" : "CARTA 2 VENCEU!");
-        printf("■ DENSIDADE POPULACIONAL: %s\n", (densipop1 < densipop2) ? "CARTA 1 VENCEU!" : "CARTA 2 VENCEU!");
-        printf("■ PIB PER CAPITA:         %s\n", (pibpcapita1 > pibpcapita2) ? "CARTA 1 VENCEU!" : "CARTA 2 VENCEU!");
-        printf("■ SUPER PODER:            %s\n", (superpoder1 > superpoder2) ? "CARTA 1 VENCEU!" : "CARTA 2 VENCEU!");
-
-
-
+        printf("\n╔═════════════════════════════════╗\n");
+        printf("║   ATRIBUTO - PONTOS TURISTICOS   ║\n");
+        printf("╚══════════════════════════════════╝\n"); 
+        if (ptur1 > ptur2){
+           printf("■ CARTA 1 - CIDADE: %s - PONTOS TURISTICOS: %d \n■ CARTA 2 - CIDADE: %s  - PONTOS TURISTICOS: %d \n■ RESULTADO: A CARTA 1 VENCEU \n", cidade1, ptur1, cidade2, ptur2);
+        } else {     
+           printf("■ CARTA 1 - CIDADE: %s - PONTOS TURISTICOS: %d \n■ CARTA 2 - CIDADE: %s  - PONTOS TURISTICOS: %d \n■ RESULTADO: A CARTA 2 VENCEU \n", cidade1, ptur1, cidade2, ptur2);
+        }        
+        
+        printf("\n╔═════════════════════════════════════╗\n");
+        printf("║   ATRIBUTO - DENSIDADE POPULACIONAL  ║\n");
+        printf("╚══════════════════════════════════════╝\n"); 
+        if (densipop1 < densipop2){
+           printf("■ CARTA 1 - CIDADE: %s - DENSIDADE POPULACIONAL: %.2f \n■ CARTA 2 - CIDADE: %s  - DENSIDADE POPULACIONAL: %.2f \n■ RESULTADO: A CARTA 1 VENCEU \n", cidade1, densipop1, cidade2, densipop2);
+        } else {     
+           printf("■ CARTA 1 - CIDADE: %s - DENSIDADE POPULACIONAL: %.2f \n■ CARTA 2 - CIDADE: %s  - DENSIDADE POPULACIONAL: %.2f \n■ RESULTADO: A CARTA 2 VENCEU \n", cidade1, densipop1, cidade2, densipop2);
+        }
+        printf("\n╔══════════════════╗\n");
+        printf("║   PIB PER CAPITA  ║\n");
+        printf("╚═══════════════════╝\n"); 
+        if (pibpcapita1 > pibpcapita2){
+           printf("■ CARTA 1 - CIDADE: %s - PIB PER CAPITA: %.2f \n■ CARTA 2 - CIDADE: %s  - PIB PER CAPITA: %.2f \n■ RESULTADO: A CARTA 1 VENCEU \n", cidade1, pibpcapita1, cidade2, pibpcapita2);
+        } else {     
+           printf("■ CARTA 1 - CIDADE: %s - PIB PER CAPITA: %.2f \n■ CARTA 2 - CIDADE: %s  - PIB PER CAPITA: %.2f \n■ RESULTADO: A CARTA 2 VENCEU \n", cidade1, pibpcapita1, cidade2, pibpcapita2);
+        }
+        printf("\n╔═══════════════╗\n");
+        printf("║   SUPER PODER  ║\n");
+        printf("╚════════════════╝\n"); 
+        if (superpoder1 > superpoder2){
+           printf("■ CARTA 1 - CIDADE: %s - SUPER PODER: %.2f \n■ CARTA 2 - CIDADE: %s  - SUPER PODER: %.2f \n■ RESULTADO: A CARTA 1 VENCEU \n", cidade1, superpoder1, cidade2, superpoder2);
+        } else {     
+           printf("■ CARTA 1 - CIDADE: %s - SUPER PODER: %.2f \n■ CARTA 2 - CIDADE: %s  - SUPER PODER: %.2f \n■ RESULTADO: A CARTA 2 VENCEU \n", cidade1, superpoder1, cidade2, superpoder2);
+        }    
     return 0;
-}
+    }
