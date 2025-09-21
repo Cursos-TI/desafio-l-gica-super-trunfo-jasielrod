@@ -19,21 +19,21 @@ int main() {
 	
     if (opcao == 1) {
     	// Declaração das variáveis para os dados das cartas
-    	char estado1, estado2; //variável para receber estado  
+    	char estado1[4], estado2[4]; //variável para receber estado  
     	int cod1 =1, cod2 =2; // variável com array para receber código (EX: A01) até 4 caracteres
     	char cidade1[50], cidade2[50]; // variável com array para receber cidade com até 50 caracteres
     	unsigned long int pop1, pop2; // variável para receber números maiores e somente positivos, para armazenar a população acima de 2 bilhões
     	float area1, area2, pib1, pib2, densipop1, densipop2, pibpcapita1, pibpcapita2, superpoder1, superpoder2; // variável tipo flutuante para receber a área em formato Km², Pib, Densidade Populacional e Pip p Capta, etc..
-    	int ptur1, ptur2, escolha1, escolha2; // variável tipo inteiro para receber o número de pontos turísticos e escolhas de caracteristicas para comparacao 
+    	int ptur1, ptur2, escolha1, escolha2, jogador1, jogador2; // variável tipo inteiro para receber o número de pontos turísticos e escolhas de caracteristicas para comparacao 
 
         printf("╔═════════════════════════════════════════════╗\n");
         printf("║▒▒▒▒▒▒▒▒▒▒▒▒ CADASTRO DA CARTA 1 ▒▒▒▒▒▒▒▒▒▒▒▒║\n");  
         printf("╚═════════════════════════════════════════════╝\n");  
 
     	// Entrada de dados para a Carta 1
-   	printf("Insira os dados da Carta 1:\n"); // exibindo mensagem solicitando a inclusão de dados
+   	printf("Jogador 1 - Insira os dados da Carta 1:\n"); // exibindo mensagem solicitando a inclusão de dados
     	printf("\nInforme o Estado: "); // exibindo mensagem solicitando a inclusão de dados 
-    	scanf(" %s", &estado1); // recebendo os dados para estado
+    	scanf(" %s", estado1); // recebendo os dados para estado
     	//printf("\nCódigo da Carta (ex: 01):"); // exibindo mensagem solicitando a inclusão de dados codigo da carta
     	//scanf("%c", cod1); // recebendo os dados para Código e armazenando na variável cod1
     	printf("\nNome da Cidade: "); // exibindo mensagem solicitando a inclusão de dados Cidade
@@ -59,9 +59,9 @@ int main() {
         printf("╚═════════════════════════════════════════════╝\n");  
 
 	// Entrada de dados para a Carta 2
-    	printf("\nInsira os dados da Carta 2:\n");
+    	printf("\nJogador 2 - Insira os dados da Carta 2:\n");
     	printf("\nInforme o Estado: ");
-	   scanf(" %s", &estado2);
+	   scanf(" %s", estado2);
     	//printf("\nCódigo da Carta (ex: 02): ");
     	//scanf("%c", cod2);
     	printf("\nNome da Cidade: ");
@@ -102,7 +102,7 @@ int main() {
         printf("╔═══════════════════════════════════════════════════╗\n");
         printf("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ CARTA 1 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n");  
         printf("╠═══════════════════════════════════════════════════╣\n");              
-        printf("║ ■ ESTADO:                 %d                       ║\n", estado1);  
+        printf("║ ■ ESTADO:                 %s                       ║\n", estado1);  
         printf("║ ■ CÓDIGO:                 %d                       ║\n", cod1);  
         printf("║ ■ CIDADE:                 %s                       \n", cidade1);  
         printf("║ ■ POPULAÇÃO:              %lu                      \n", pop1);  
@@ -117,7 +117,7 @@ int main() {
         printf("╔═══════════════════════════════════════════════════╗\n");
         printf("║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ CARTA 2 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║\n");  
         printf("╠═══════════════════════════════════════════════════╣\n");              
-        printf("║ ■ ESTADO:                 %d                       ║\n", estado2);  
+        printf("║ ■ ESTADO:                 %s                       ║\n", estado2);  
         printf("║ ■ CÓDIGO:                 %d                       ║\n", cod2);  
         printf("║ ■ CIDADE:                 %s                        \n", cidade2);  
         printf("║ ■ POPULAÇÃO:              %lu                       \n", pop2);  
@@ -139,12 +139,12 @@ int main() {
     	printf("║ ( 1 ) POPULACAO                 ║\n");  
     	printf("║ ( 2 ) AREA                      ║\n");  
     	printf("║ ( 3 ) PIB                       ║\n"); 
-   	printf("║ ( 4 ) PONTOS TURISTICOS         ║\n");
-      printf("║ ( 5 ) DENSIDADE DEMOGRAFICA     ║\n");
+   	    printf("║ ( 4 ) PONTOS TURISTICOS         ║\n");
+        printf("║ ( 5 ) DENSIDADE DEMOGRAFICA     ║\n");
     	printf("╚═════════════════════════════════╝\n \n \n");  
-      printf("ESCOLHA O PRIMEIRO ATRIBUTO: ");
-      scanf("%d", &escolha1);
-      do {
+        printf("ESCOLHA O PRIMEIRO ATRIBUTO: ");
+        scanf("%d", &escolha1);
+        do {
          printf("\n ESCOLHA O SEGUNDO ATRIBUTO: ");
          scanf("%d", &escolha2);
         if (escolha2 == escolha1) {
@@ -166,35 +166,70 @@ int main() {
               printf("║   ATRIBUTO - POPULACAO   ║\n");
               printf("╚══════════════════════════╝\n");
               printf("■ CARTA 1 - CIDADE: %s - POPULACAO: %lu \n■ CARTA 2 - CIDADE: %s -  POPULACAO: %lu \n ", cidade1, pop1, cidade2, pop2); 
-              printf("Resultado: %s\n", (pop1 > pop2) ? "Carta 1 venceu" : (pop2 > pop1) ? "Carta 2 venceu" : "Empate");  
+              printf("■ RESULTADO: %s\n", (pop1 > pop2) ? "CARTA 1 GANHOU !" : (pop2 > pop1) ? "CARTA 2 GANHOU !" : "EMPATE");
+              if (pop1 > pop2) {
+                    jogador1++;                    
+                } else if (pop2 < pop1) {
+                    jogador2++;                    
+                } else {
+                    jogador1++, jogador2++;
+                }  
               break;
         case 2:
               printf("╔══════════════════════╗\n");
               printf("║   ATRIBUTO - AREA    ║\n");
               printf("╚══════════════════════╝\n"); 
               printf("■ CARTA 1 - CIDADE: %s - AREA: %.2f \n■ CARTA 2 - CIDADE: %s -  AREA: %.2f \n ", cidade1, area1, cidade2, area2);              
-              printf("Resultado: %s\n", (area1 > area2) ? "Carta 1 venceu" : (area2 > area1) ? "Carta 2 venceu" : "Empate");                                                               
+              printf("■ RESULTADO: %s\n", (area1 > area2) ? "CARTA 1 GANHOU !" : (area2 > area1) ? "CARTA 2 GANHOU !" : "EMPATE");  
+              if (area1 > area2) {
+                    jogador1 = 1;                    
+                } else if (area1 < area2) {
+                    jogador2++;                    
+                } else {
+                    jogador1++, jogador2++;
+                }                                                                            
             break;
         case 3:
               printf("╔══════════════════════════╗\n");
               printf("║     ATRIBUTO - PIB       ║\n");
               printf("╚══════════════════════════╝\n");
               printf("■ CARTA 1 - CIDADE: %s - PIB: %.2f \n■ CARTA 2 - CIDADE: %s  - PIB: %.2f \n", cidade1, pib1, cidade2, pib2); 
-              printf("Resultado: %s\n", (pib1 > pib2) ? "Carta 1 venceu" : (pib2 > pib1) ? "Carta 2 venceu" : "Empate");  
+              printf("■ RESULTADO: %s\n", (pib1 > pib2) ? "CARTA 1 GANHOU !" : (pib2 > pib1) ? "CARTA 2 GANHOU !" : "EMPATE");
+              if (pib1 > pib2) {
+                    jogador1++;                    
+                } else if (pib1 < pib2) {
+                    jogador2++;                    
+                } else {
+                    jogador1++, jogador2++;
+                }                 
             break;
         case 4:
               printf("╔═════════════════════════════════╗\n");
               printf("║   ATRIBUTO - PONTOS TURISTICOS  ║\n");
               printf("╚═════════════════════════════════╝\n");
               printf("■ CARTA 1 - CIDADE: %s - PONTOS TURISTICOS: %d \n■ CARTA 2 - CIDADE: %s  - PONTOS TURISTICOS: %d \n", cidade1, ptur1, cidade2, ptur2); 
-              printf("Resultado: %s\n", (ptur1 > ptur2) ? "Carta 1 venceu" : (ptur2 > ptur1) ? "Carta 2 venceu" : "Empate");  
+              printf("■ RESULTADO: %s\n", (ptur1 > ptur2) ? "CARTA 1 GANHOU !" : (ptur2 > ptur1) ? "CARTA 2 GANHOU !" : "EMPATE");
+              if (pop1 > pop2) {
+                    jogador1++;                    
+                } else if (pop2 < pop1) {
+                    jogador2++;                    
+                } else {
+                    jogador1++, jogador2++;
+                }                 
             break;
         case 5:
              printf("╔══════════════════════════════════════╗\n");
              printf("║   ATRIBUTO - DENSIDADE POPULACIONAL  ║\n");
              printf("╚══════════════════════════════════════╝\n");
              printf("■ CARTA 1 - CIDADE: %s - DENSIDADE POPULACIONAL: %.2f \n■ CARTA 2 - CIDADE: %s  - DENSIDADE POPULACIONAL: %.2f \n", cidade1, densipop1, cidade2, densipop2); 
-             printf("Resultado: %s\n", (densipop1 < densipop2) ? "Carta 1 venceu" : (densipop1 > densipop2) ? "Carta 2 venceu" : "Empate");  
+             printf("■ RESULTADO: %s\n", (densipop1 < densipop2) ? "CARTA 1 GANHOU !" : (densipop1 > densipop2) ? "CARTA 2 GANHOU !" : "EMPATE");
+              if (densipop1 < densipop2) {
+                    jogador1++;                    
+                } else if (densipop1 > densipop2) {
+                    jogador2++;                    
+                } else {
+                    jogador1++, jogador2++;
+                }                
             break; 
         default:
             printf("Opcao invalida!\n");
@@ -209,38 +244,80 @@ int main() {
               printf("║   ATRIBUTO - POPULACAO   ║\n");
               printf("╚══════════════════════════╝\n");
               printf("■ CARTA 1 - CIDADE: %s - POPULACAO: %lu \n■ CARTA 2 - CIDADE: %s -  POPULACAO: %lu \n ", cidade1, pop1, cidade2, pop2); 
-              printf("Resultado: %s\n", (pop1 > pop2) ? "Carta 1 venceu" : (pop2 > pop1) ? "Carta 2 venceu" : "Empate");                                                                                              
+              printf("■ RESULTADO: %s\n", (pop1 > pop2) ? "CARTA 1 GANHOU !" : (pop2 > pop1) ? "CARTA 2 GANHOU !" : "EMPATE");
+              if (pop1 > pop2) {
+                    jogador1 ++;                    
+                } else if (pop2 < pop1) {
+                    jogador2 ++;                    
+                } else {
+                    jogador1 ++, jogador2 ++;
+                }                                                                                                             
               break;
         case 2:
               printf("╔══════════════════════╗\n");
               printf("║   ATRIBUTO - AREA    ║\n");
               printf("╚══════════════════════╝\n");
               printf("■ CARTA 1 - CIDADE: %s - AREA: %.2f \n■ CARTA 2 - CIDADE: %s -  AREA: %.2f \n ", cidade1, area1, cidade2, area2);  
-              printf("Resultado: %s\n", (area1 > area2) ? "Carta 1 venceu" : (area2 > area1) ? "Carta 2 venceu" : "Empate");                                                            
+              printf("■ RESULTADO: %s\n", (area1 > area2) ? "CARTA 1 GANHOU !" : (area2 > area1) ? "CARTA 2 GANHOU !" : "EMPATE");   
+              if (area1 > area2) {
+                    jogador1 ++;                    
+                } else if (area1 < area2) {
+                    jogador2++;                    
+                } else {
+                    jogador1++, jogador2++;
+                }                                                                        
             break;
         case 3:
               printf("╔══════════════════════════╗\n");
               printf("║     ATRIBUTO - PIB       ║\n");
               printf("╚══════════════════════════╝\n");
               printf("■ CARTA 1 - CIDADE: %s - PIB: %.2f \n■ CARTA 2 - CIDADE: %s  - PIB: %.2f \n", cidade1, pib1, cidade2, pib2);  
-              printf("Resultado: %s\n", (pib1 > pib2) ? "Carta 1 venceu" : (pib2 > pib1) ? "Carta 2 venceu" : "Empate");  
+              printf("■ RESULTADO: %s\n", (pib1 > pib2) ? "CARTA 1 GANHOU !" : (pib2 > pib1) ? "CARTA 2 GANHOU !" : "EMPATE");
+              if (pib1 > pib2) {
+                    jogador1++;                    
+                } else if (pib1 < pib2) {
+                    jogador2++;                    
+                } else {
+                    jogador1++, jogador2++;
+                }                 
             break;
         case 4:
               printf("╔═════════════════════════════════╗\n");
               printf("║   ATRIBUTO - PONTOS TURISTICOS  ║\n");
               printf("╚═════════════════════════════════╝\n");
               printf("■ CARTA 1 - CIDADE: %s - PONTOS TURISTICOS: %d \n■ CARTA 2 - CIDADE: %s  - PONTOS TURISTICOS: %d \n", cidade1, ptur1, cidade2, ptur2); 
-              printf("Resultado: %s\n", (ptur1 > ptur2) ? "Carta 1 venceu" : (ptur2 > ptur1) ? "Carta 2 venceu" : "Empate");     
+              printf("■ RESULTADO: %s\n", (ptur1 > ptur2) ? "CARTA 1 GANHOU !" : (ptur2 > ptur1) ? "CARTA 2 GANHOU !" : "EMPATE");
+              if (ptur1 > ptur2) {
+                    jogador1++;                    
+                } else if (ptur1 < ptur2) {
+                    jogador2++;                    
+                } else {
+                    jogador1++, jogador2++;
+                }      
             break;
         case 5:
              printf("╔══════════════════════════════════════╗\n");
              printf("║   ATRIBUTO - DENSIDADE POPULACIONAL  ║\n");
              printf("╚══════════════════════════════════════╝\n");
              printf("■ CARTA 1 - CIDADE: %s - DENSIDADE POPULACIONAL: %.2f \n■ CARTA 2 - CIDADE: %s  - DENSIDADE POPULACIONAL: %.2f \n", cidade1, densipop1, cidade2, densipop2); 
-             printf("Resultado: %s\n", (densipop1 < densipop2) ? "Carta 1 venceu" : (densipop1 > densipop2) ? "Carta 2 venceu" : "Empate");  
+             printf("■ RESULTADO: %s\n", (densipop1 < densipop2) ? "CARTA 1 GANHOU !" : (densipop1 > densipop2) ? "CARTA 2 GANHOU !" : "EMPATE");
+              if (densipop1 < densipop2) {
+                    jogador1 ++;                    
+                } else if (densipop1 > densipop2) {
+                    jogador2++;                    
+                } else {
+                    jogador1++, jogador2++;
+                }               
             break; 
         default:
             printf("Opcao invalida!\n");
+        }
+        if (jogador1 > jogador2) {
+            printf("Jogador 1 venceu com %d pontos!\n", jogador1);
+        } else if (jogador2 > jogador1) {
+            printf("Jogador 2 venceu com %d pontos!\n", jogador2);
+        } else {
+        printf("Empate! Ambos os jogadores fizeram %d pontos.\n", jogador1);
         }
     }    
     else if (opcao == 2) {
@@ -249,10 +326,10 @@ int main() {
         printf("╚══════════════════════════╝\n"); 
         printf("1. Cada jogador cadastra os atributos da sua carta: Ex. populacao, area, PIB e pontos turisticos.\n");
         printf("2. Escolhe-se duas cartas e duas caracteristicas para comparar.\n");
-        printf("3. O programa mostra qual carta venceu em cada caracteristica.\n");
-        printf("Pressione ENTER para continuar...\n");
-        getchar(); // espera usuário apertar ENTER
-        goto inicio;
+        printf("3. O programa mostra qual carta ganhou em cada caracteristica.\n");
+        printf("4. E no final revela qual jogador venceu a partida.\n");
+
+        goto inicio; // Salta para o rotulo inicio no primeiro menu, se deixar sem o programa sai.
     }
     else {
         printf("\nSaindo do jogo...\n");
